@@ -1,0 +1,6 @@
+#AOA
+pooii
+@media($a, $b) = ($a + $b)/2;
+@delta($a, $b, $c) = $b^2 - 4*$a*$c;
+@delta(1, 2, 1);
+

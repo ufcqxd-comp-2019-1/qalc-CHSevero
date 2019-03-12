@@ -43,6 +43,7 @@ public class Source {
      */
     private char currentChar;
 
+
     /**
      * Constrói uma fonte de caracteres.
      * <p>
@@ -87,6 +88,7 @@ public class Source {
 
         return this.currentChar;
     }
+
 
     /**
      * Obtém o último caractere lido.
