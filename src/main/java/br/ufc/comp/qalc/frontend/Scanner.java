@@ -122,11 +122,19 @@ public class Scanner {
                 } while (Character.isLetter(source.getCurrentChar()));
                 return new VariableIdentifierToken(currentLine, lexemaStart, lexema.toString());
             }else if (Character.isDigit(source.getCurrentChar()) || source.getCurrentChar() == '?'){ // ResultIdentifierToken 5
+                if (source.getCurrentChar() == '?'){
+                    lexema.append(source.getCurrentChar());
+                    source.advance();
+                    return new ResultIdentifierToken(currentLine, lexemaStart, lexema.toString());
+                }
                 lexema.append(source.getCurrentChar());
                 source.advance();
                 while (Character.isDigit(source.getCurrentChar())){
                     lexema.append(source.getCurrentChar());
                     source.advance();
+                }
+                if(Long.parseLong(lexema.substring(1))== 0){
+                    return new ErroToken(currentLine, lexemaStart, lexema.toString());
                 }
                 return new ResultIdentifierToken(currentLine, lexemaStart, lexema.toString());
             }
